@@ -12,38 +12,56 @@
       </div>
       <h3>带有图标的按钮</h3>
       <div class="components-container">
-        <el-button type="primary"
-                   icon='coin-dollar'
-                   @clickFn="handerButton">主要按钮</el-button>
-        <el-button type="success"
-                   icon='coin-dollar'
-                   icon-position='right'>主要按钮</el-button>
+        <el-button type="primary" icon="coin-dollar" @clickFn="handerButton"
+          >主要按钮</el-button
+        >
+        <el-button type="success" icon="coin-dollar" icon-position="right"
+          >主要按钮</el-button
+        >
+      </div>
+      <h3>禁用按钮</h3>
+      <div class="components-container">
+        <el-button type="primary" @clickFn="handerButton" :disabled="true"
+          >禁用按钮</el-button
+        >
+        <el-button type="info" :disabled="true">信息按钮</el-button>
+        <el-button type="danger" :disabled="true">危险按钮</el-button>
+      </div>
+      <h3>按钮组</h3>
+      <div class="components-container">
+        <el-button-group>
+          <el-button type="success" icon="coin-dollar" icon-position="right"
+            >主要按钮</el-button
+          >
+          <el-button type="success" icon="folder-open" icon-position="right"
+            >主要按钮</el-button
+          >
+        </el-button-group>
       </div>
       <h3>Icon</h3>
       <div class="components-container">
-        <el-icon icon='home3'></el-icon>
-        <el-icon icon='copy'></el-icon>
-        <el-icon icon='folder-open'></el-icon>
+        <el-icon icon="home3"></el-icon>
+        <el-icon icon="copy"></el-icon>
+        <el-icon icon="folder-open"></el-icon>
       </div>
     </div>
   </div>
-
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue"
+import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "App",
   setup() {
     const handerButton = () => {
-      console.log("按钮点击事件")
-    }
+      console.log("按钮点击事件");
+    };
     return {
       handerButton,
-    }
+    };
   },
-})
+});
 </script>
 
 <style lang="scss">

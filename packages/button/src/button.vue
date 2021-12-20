@@ -1,42 +1,40 @@
 <template>
-  <button :class="[
-      'el-button',
-      'el-button--' + buttonType,
-      'el-button--' + iconPosition
-      
-    ]"
-          @click="$emit('clickFn')">
-    <el-icon class='icon'
-             :icon='icon'
-             v-if="icon"></el-icon>
+  <button :class="buttonClass" @click="$emit('clickFn')" :disabled="disabled">
+    <el-icon class="icon" :icon="icon" v-if="icon"></el-icon>
     <!-- 默认如果没有内容，不显示 -->
     <span v-if="$slots.default">
       <slot></slot>
     </span>
-
   </button>
 </template>
 <script>
-import { defineComponent, setup, computed } from 'vue'
-import { buttonProps } from './button'
+import { defineComponent, setup, computed } from "vue";
+import { buttonProps } from "./button";
 export default {
-  name: 'el-button',
+  name: "el-button",
   props: buttonProps,
-  setup (props, { emit }) {
-    const buttonType = computed(() => {
-      return props.type ? props.type : 'default'
-    })
-
-    const iconPosition = computed(() => {
-      return props.iconPosition || 'left'
-    })
+  setup(props, { emit }) {
+    const buttonClass = computed(() => {
+      let res = ["el-button"];
+      let buttonType = props.type
+        ? `el-button--${props.type}`
+        : "el-button--default";
+      let iconPosition = props.iconPosition
+        ? `el-button--${props.iconPosition}`
+        : "el-button--left";
+      let buttonDisabled = "";
+      if (props.disabled) {
+        buttonDisabled = `el-button--${props.type}-disabled`;
+      }
+      res = [...res, buttonType, iconPosition, buttonDisabled];
+      return res;
+    });
 
     return {
-      buttonType
-    }
-  }
-
-}
+      buttonClass,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -101,6 +99,22 @@ export default {
       border-color: $color;
     }
   }
+  @each $type,
+    $color
+      in (
+        primary: $primary-disabled,
+        success: $success-disabled,
+        warning: $warning-disabled,
+        info: $info-disabled,
+        danger: $danger-disabled
+      )
+  {
+    &--#{$type}-disabled {
+      color: #fff;
+      background: $color;
+      border-color: $color;
+    }
+  }
   .icon + span {
     margin-left: 4px;
   }
@@ -123,5 +137,3 @@ export default {
   }
 }
 </style>
-
-

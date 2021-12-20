@@ -4,24 +4,26 @@
   </div>
 </template>
 <script>
-import { defineComponent, setup, computed } from 'vue'
+import { defineComponent, setup, computed } from "vue";
 export default {
-  name: 'el-icon',
+  name: "el-icon",
   props: {
     icon: {
       type: String,
-      default: ''
-    }
+      default: "",
+    },
   },
-  setup (props) {
+  setup(props) {
     const iconClass = computed(() => {
-      return `icon-${props.icon}`
-    })
+      console.log(props.icon);
+
+      return `icon-${props.icon}`;
+    });
     return {
-      iconClass
-    }
-  }
-}
+      iconClass,
+    };
+  },
+};
 </script>
 <style>
 @import "../../icomoon/style.css";
@@ -30,6 +32,3 @@ export default {
   vertical-align: text-bottom;
 }
 </style>
-
-
-
