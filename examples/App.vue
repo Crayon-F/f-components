@@ -12,8 +12,8 @@
       </div>
       <h3>带有图标的按钮</h3>
       <div class="components-container">
-        <el-button type="primary" icon="coin-dollar" @clickFn="handerButton"
-          >主要按钮</el-button
+        <el-button type="primary" icon="coin-dollar" @click="handerButton"
+          >可点击</el-button
         >
         <el-button type="success" icon="coin-dollar" icon-position="right"
           >主要按钮</el-button
@@ -21,7 +21,7 @@
       </div>
       <h3>禁用按钮</h3>
       <div class="components-container">
-        <el-button type="primary" @clickFn="handerButton" :disabled="true"
+        <el-button type="primary" @click="handerButton" :disabled="true"
           >禁用按钮</el-button
         >
         <el-button type="info" :disabled="true">信息按钮</el-button>
@@ -44,20 +44,75 @@
         <el-icon icon="copy"></el-icon>
         <el-icon icon="folder-open"></el-icon>
       </div>
+      <h3>Input</h3>
+      <div class="components-container">
+        <!-- 普通 -->
+        <el-input
+          v-model="val"
+          type="text"
+          placeholder="请输入内容"
+          name="username"
+        ></el-input>
+      </div>
+      <h3>Input密码文本切换</h3>
+      <div class="components-container">
+        <!-- 密码文本切换 -->
+        <el-input
+          v-model="val"
+          type="text"
+          placeholder="请输入内容"
+          name="username"
+          show-password
+        ></el-input>
+      </div>
+      <h3>Input清空</h3>
+      <div class="components-container">
+        <!-- 清空 -->
+        <el-input
+          v-model="val"
+          type="text"
+          placeholder="请输入内容"
+          name="username"
+          clearable
+        ></el-input>
+      </div>
+      <h3>Input前后icon</h3>
+      <div class="components-container">
+        <!-- 前icon -->
+        <el-input
+          v-model="val"
+          type="text"
+          placeholder="请输入内容"
+          name="username"
+          prefixIcon="search"
+        ></el-input>
+        <!-- 后icon -->
+        <el-input
+          v-model="val"
+          type="text"
+          placeholder="请输入内容"
+          name="username"
+          suffixIcon="copy"
+        ></el-input>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "App",
   setup() {
+    let val = ref("input");
     const handerButton = () => {
-      console.log("按钮点击事件");
+      console.log(11111);
+
+      console.log(val.value);
     };
     return {
+      val,
       handerButton,
     };
   },
@@ -80,6 +135,7 @@ export default defineComponent({
     border: 1px solid #ebebeb;
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
   }
 }
 </style>

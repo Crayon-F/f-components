@@ -13,7 +13,10 @@ export default {
       default: "",
     },
   },
-  setup(props) {
+  setup(props, { emit }) {
+    const handerIcon = (evt) => {
+      emit("click", evt);
+    };
     const iconClass = computed(() => {
       console.log(props.icon);
 
@@ -21,6 +24,7 @@ export default {
     });
     return {
       iconClass,
+      handerIcon,
     };
   },
 };

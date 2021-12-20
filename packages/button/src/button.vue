@@ -1,5 +1,5 @@
 <template>
-  <button :class="buttonClass" @click="$emit('clickFn')" :disabled="disabled">
+  <button :class="buttonClass" :disabled="disabled">
     <el-icon class="icon" :icon="icon" v-if="icon"></el-icon>
     <!-- 默认如果没有内容，不显示 -->
     <span v-if="$slots.default">
