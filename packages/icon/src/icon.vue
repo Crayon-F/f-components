@@ -18,8 +18,6 @@ export default {
       emit("click", evt);
     };
     const iconClass = computed(() => {
-      console.log(props.icon);
-
       return `icon-${props.icon}`;
     });
     return {
