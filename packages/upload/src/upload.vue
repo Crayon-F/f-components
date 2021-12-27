@@ -23,7 +23,10 @@
     <ul>
       <li v-for="item in fileList" :key="item.uid">
         <span>{{ item.name }}</span>
-        <span>{{ item.percentage }}</span>
+        <el-progress
+          :percentage="item.percentage"
+          :format="item.status"
+        ></el-progress>
       </li>
     </ul>
   </div>
