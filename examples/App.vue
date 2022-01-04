@@ -52,6 +52,7 @@
           type="text"
           placeholder="请输入内容"
           name="username"
+          @change="handerInpChange"
         ></el-input>
       </div>
       <h3>Input密码文本切换</h3>
@@ -132,6 +133,10 @@
           </template>
         </el-upload>
       </div>
+      <h3>日历组件</h3>
+      <div>
+        <el-date-picker v-model="datePickerVal"></el-date-picker>
+      </div>
     </div>
   </div>
 </template>
@@ -144,6 +149,7 @@ export default defineComponent({
   setup() {
     let val = ref("input");
     let action = ref("https://upload.ximalaya.com/dtres/headerThumb/upload");
+    let datePickerVal = ref("");
     const state = reactive({
       fileList: [
         {
@@ -156,6 +162,9 @@ export default defineComponent({
         },
       ],
     });
+    const handerInpChange = (e: any) => {
+      console.log("inputChange", e.target.value);
+    };
     // 文件超出个数限制时的钩子
     const handerExceed = () => {
       console.log("超出最大上传数量");
@@ -202,6 +211,7 @@ export default defineComponent({
       val,
       handerButton,
       action,
+      datePickerVal,
       ...toRefs(state),
       handerExceed,
       handerChange,
@@ -209,6 +219,7 @@ export default defineComponent({
       handerError,
       handerProgress,
       handerBeforeUpload,
+      handerInpChange,
     };
   },
 });

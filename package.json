@@ -10,6 +10,7 @@
     "lint-build": "vue-cli-service build --target lib --name index --dest lib packages/index.ts"
   },
   "dependencies": {
+    "v-click-outside": "^3.1.2",
     "vue": "^3.0.0"
   },
   "devDependencies": {

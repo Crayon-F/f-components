@@ -7,6 +7,7 @@
       :name="name"
       autocomplete="off"
       @input="updateValue"
+      @focus="focusInp"
     />
     <!-- 隐藏显示密码 -->
     <el-icon
@@ -99,6 +100,10 @@ export default {
       emit("update:modelValue", "");
     };
 
+    const focusInp = () => {
+      emit("focus");
+    };
+
     return {
       passwordVisible,
       inputClass,
@@ -106,6 +111,7 @@ export default {
       handlePasswordVisible,
       handleClearable,
       icon,
+      focusInp,
     };
   },
 };

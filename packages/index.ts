@@ -5,6 +5,7 @@ import elButtonGroup from "./button-group";
 import elInput from "./input";
 import elUpload from "./upload";
 import elProgress from "./progress";
+import elDatePicker from "./datePicker";
 
 const components = [
   elButton,
@@ -13,6 +14,7 @@ const components = [
   elInput,
   elUpload,
   elProgress,
+  elDatePicker,
 ];
 const install = (app: App): void => {
   components.map((component) => app.component(component.name, component));
@@ -27,4 +29,5 @@ export default {
   elInput,
   elUpload,
   elProgress,
+  elDatePicker,
 };
