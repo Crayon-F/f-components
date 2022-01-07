@@ -6,6 +6,7 @@ import elInput from "./input";
 import elUpload from "./upload";
 import elProgress from "./progress";
 import elDatePicker from "./datePicker";
+import infiniteScroll from "./infinite-scroll/index";
 
 const components = [
   elButton,
@@ -18,6 +19,7 @@ const components = [
 ];
 const install = (app: App): void => {
   components.map((component) => app.component(component.name, component));
+  infiniteScroll(app);
 };
 
 export { elButton };

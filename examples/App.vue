@@ -11,6 +11,8 @@
       <elUpload></elUpload>
       <!-- 日历组件 -->
       <eldatePickerVal></eldatePickerVal>
+      <!-- 滚动组件 -->
+      <elinfiniteScroll></elinfiniteScroll>
     </div>
   </div>
 </template>
@@ -21,7 +23,8 @@ import elIcon from "./icon/index.vue";
 import elInput from "./input/index.vue";
 import elUpload from "./upload/index.vue";
 import eldatePickerVal from "./datePicker/index.vue";
-import { defineComponent } from "vue";
+import elinfiniteScroll from "./infinite-scroll/index.vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "App",
@@ -31,6 +34,13 @@ export default defineComponent({
     elInput,
     elUpload,
     eldatePickerVal,
+    elinfiniteScroll,
+  },
+  setup() {
+    let visible = ref(false);
+    return {
+      visible,
+    };
   },
 });
 </script>
