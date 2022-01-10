@@ -1,6 +1,7 @@
 <template>
   <div class="el-icon">
-    <span :class="iconClass"></span>
+    <span :class="iconClass"
+          @click="trunk"></span>
   </div>
 </template>
 <script>
@@ -13,16 +14,20 @@ export default {
       default: "",
     },
   },
-  setup(props, { emit }) {
+  setup (props, { emit }) {
     const handerIcon = (evt) => {
       emit("click", evt);
     };
     const iconClass = computed(() => {
       return `icon-${props.icon}`;
     });
+    const trunk = () => {
+      window.fn('弄了一下午呢')
+    }
     return {
       iconClass,
       handerIcon,
+      trunk
     };
   },
 };
