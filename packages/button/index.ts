@@ -1,7 +1,5 @@
 import { App } from 'vue'
 
-import '../util.js'
-
 import Button from './src/button.vue';
 
 Button.install = (app:App):void=>{
