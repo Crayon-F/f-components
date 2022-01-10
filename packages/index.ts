@@ -22,7 +22,6 @@ const install = (app: App): void => {
   infiniteScroll(app);
 };
 
-export { elButton };
 export default {
   install,
   elButton,
